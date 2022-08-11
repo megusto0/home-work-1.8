@@ -1,19 +1,19 @@
 public class Main {
     public static void main(String[] args) {
         //Задание 1
-        isYearBissextile(2024);
+        isYearBissextile(2000);
 
         //Задание 2
         osMessage(1, 2022);
 
         //Задание 3
-        deliveryCalculator(60);
+        int delivery = deliveryCalculator(60);
+        //System.out.println(delivery);
     }
 
-    public static void isYearBissextile (int year) {
+    private static void isYearBissextile (int year) {
         boolean isYearVisokosni = false;
-        if (year % 400 == 0) isYearVisokosni = true;
-        if (year % 4 == 0 && year % 100 != 0) isYearVisokosni = true;
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) isYearVisokosni = true;
         if (isYearVisokosni) {
             System.out.println(year + " — високосный год");
         }
@@ -22,7 +22,7 @@ public class Main {
         }
     }
 
-    public static void osMessage(int clientOS, int clientDeviceYear) {
+    private static void osMessage(int clientOS, int clientDeviceYear) {
         int currentYear = 2022;
 
         if (clientDeviceYear >= currentYear) {
@@ -39,12 +39,11 @@ public class Main {
         }
     }
 
-    public static void deliveryCalculator(int deliveryDistance) {
+    private static int deliveryCalculator(int deliveryDistance) {
         int delivery = 1;
         if (deliveryDistance >= 20) {
             delivery += (deliveryDistance - 20)  / 40 + 1;
         }
-        System.out.println("Потребуется дней: " + delivery);
-        System.out.println();
+        return delivery;
     }
 }
